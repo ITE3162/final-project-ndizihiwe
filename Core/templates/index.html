@@ -1,0 +1,251 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Movie Community</title>
+    <link rel="icon" href="../static/Core/images/icons/icon.png" type="image/x-icon">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Noto+Sans+JP">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'Core/css/styles.css' %}">
+</head>
+    <!-- ************ HERO SECTION ************-->
+    <header id="home">
+        <div class="menu">
+        <img src="{% static '/Core/images/logo_edited.png' %}" alt="">
+              <nav class="nav">
+                <ul class="nav-link">
+                    <li><a class="text-decoration-none" href="#home">Home</a></li>
+                    <li><a class="text-decoration-none" href="#about">About</a></li>
+                    <li><a class="text-decoration-none" href="#whatwedo">What we do</a></li>
+                    <li><a class="text-decoration-none" href="#team">Team</a></li>
+                    <li><a class="text-decoration-none" href="#blog">Blog</a></li>
+                    <li><a class="text-decoration-none" href="#contact">Get in Touch</a></li>
+                </ul>
+              </nav>
+        </div>
+        <section class="hero-section">
+            <h1 class="text-warning">A Community of Movie lovers</h1>
+            <p>
+                The Film Circle's mission is to offer a casual, weekly forum for people to view and discuss indie,<br>
+                foreign and classic films and meet others who share this interest.
+            </p>
+            <div id="action">
+                <a href="#" class="btn">
+                    <button class="btn btn-dark btn-lg text-warning">More About Us</button>
+                </a>
+                <a href="#">
+                    <button class="btn btn-danger btn-lg">Join our Community</button>
+                </a>
+            </div>
+        </section>
+    </header>
+<!--#########About section ###############-->
+<section class="" id="about">
+    <h1 class="pt-4">About Us</h1>
+    <hr>
+    <div class="container-fluid">
+        <div class="row p-2 justify-content-around pb-lg-4">
+        <!--    TODO: Fetch data from database-->
+    <div class="col-md text-center">
+        <p class="text-justify pl-5">
+            Nomiso is a computer specialist who's pursuing to get bachelors degree in Information Technology (IT)
+            at University of Rwanda College of science and Technology (UR-CST) and he has received different certificates regarding
+            computing fields and he s looking forward to continuing his studies in Master’s degree at University of Canada in this upcoming year.
+        </p>
+    <a href="#">
+        <button class="btn btn-danger btn-lg">Read more</button>
+    </a>
+    </div>
+    <div class="col-sm-3 pl-5">
+        <img class="img-fluid" src="https://via.placeholder.com/250" alt="Responsive image">
+    </div>
+        </div>
+         </div>
+
+
+</section>
+
+<!--#########What we do section ###############-->
+<section class="text-light" style="background-color: #000000" id="whatwedo">
+    <h1 class="pt-4">What We Do</h1>
+    <hr>
+<!--    TODO: Fetch data from database-->
+<div class="container-fluid">
+    <div class="row text-center justify-content-around p-lg-5 mb-lg-5">
+        <div class="col-sm-3">
+            <img src="https://via.placeholder.com/60" alt="">
+            <h2 class="m-2">Networking</h2>
+            <p class="text-justify">
+                Networking is the field of computer science that allows computers to exchange data or information.
+                Data can be exchanged either using cable media or wireless media.
+            </p>
+            <a href="#" class="btn m-3"><button class="btn btn-danger btn-block">Read more</button></a>
+        </div>
+         <div class="col-sm-3">
+            <img src="https://via.placeholder.com/60" alt="">
+            <h2 class="m-2">Linux distros</h2>
+            <p class="text-justify">
+                Linux facilitates with powerful support for networking. It provides various command-line tools such as
+                ssh, ip, mail, telnet, and more for connectivity with the other...
+            </p>
+            <a href="#" class="btn m-3"><button class="btn btn-danger btn-block">Read more</button></a>
+        </div>
+        <div class="col-sm-3">
+            <img src="https://via.placeholder.com/60" alt="">
+            <h2 class="m-2">Cloud computing</h2>
+            <p class="text-justify">
+                On-demand availability of computer system resources, especially data storage (cloud storage) and computing power,
+                without direct active management by the user.
+            </p>
+            <a href="#" class="btn m-3"><button class="btn btn-danger btn-block">Read more</button></a>
+        </div>
+    </div>
+
+
+    </div>
+</section>
+
+<!--#########Team section ###############-->
+<section class="team-section" id="team">
+    <h1 class="pt-2">Our Team</h1>
+    <hr>
+<!--    TODO: Fetch data from database-->
+    <div class="container-fluid pb-lg-4">
+        <div class="row mb-md-2">
+              <div class="col">
+            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
+            <h3>Names</h3>
+            <h4>Title</h4>
+            <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+        <div class="col">
+            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
+            <h3>Names</h3>
+            <h4>Title</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+        </div>
+      <div class="row mb-md-2">
+          <div class="col">
+            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
+            <h3>Names</h3>
+            <h4>Title</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+          <div class="col">
+            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
+            <h3>Names</h3>
+            <h4>Title</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+      </div>
+         <div class="row mb-md-2">
+              <div class="col">
+            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
+            <h3>Names</h3>
+            <h4>Title</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+          <div class="col">
+            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
+            <h3>Names</h3>
+            <h4>Title</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+    </div>
+         </div>
+</section>
+
+<!--#########About section ###############-->
+<section class="text-light" style="background-color: #000000" id="blog">
+    <h1 class="pt-4">Blog Posts</h1>
+    <hr>
+<!--    TODO: Fetch data from database-->
+<div class="container-fluid">
+    <div class="row text-center pb-lg-5">
+    <div class="col">
+        <img class="m-4" src="https://via.placeholder.com/200x300" alt="">
+        <h4>Date</h4>
+        <h4>Authors</h4>
+        <h3>Blog Title</h3>
+    </div>
+    <div class="col">
+        <img class="m-4" src="https://via.placeholder.com/200x300" alt="">
+        <h4>Date</h4>
+        <h4>Authors</h4>
+        <h3>Blog Title</h3>
+    </div>
+    <div class="col">
+        <img class="m-4" src="https://via.placeholder.com/200x300" alt="">
+        <h4>Date</h4>
+        <h4>Authors</h4>
+        <h3>Blog Title</h3>
+    </div>
+</div>
+</div>
+</section>
+
+<!--#########About section ###############-->
+<section id="contact">
+    <h1 class="pt-4">Get in Touch</h1>
+    <hr>
+<!--    TODO: Fetch data from database-->
+<div class="container">
+    <div class="row">
+    <div class="col">
+        <h2>Social Links</h2>
+
+        <a class="text-decoration-none" href="https://www.instagram.com/nomisoo__/" target="_blank"><i class="fab fa-instagram fa-sm"></i></a>
+        <a class="text-decoration-none" href="https://twitter.com/Nomiso__" target="_blank" ><i class="fab fa-twitter"></i></a>
+        <a class="text-decoration-none" href="https://www.facebook.com/ndizihiwesimon/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a class="text-decoration-none" href="https://wa.link/f1w54r" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <div class="col">
+        <h2>Sitemap</h2>
+        <div><a class="text-decoration-none mb-lg-4" href="#home">Home</a></div>
+        <div><a class="text-decoration-none mb-lg-4" href="#team">Our Team</a><br> </div>
+       <div><a class="text-decoration-none mb-lg-4" href="#blog">Blog Posts</a></div>
+    </div>
+    <div class="col">
+        <h2>Contact Us</h2>
+        <form action="" method="post" class="">
+            <input class="form-control bg-dark m-2" type="email" name="email" placeholder="Enter Email address">
+            <input class="form-control bg-dark m-2" type="text" name="subject" placeholder="Enter Subject">
+            <textarea class="form-control bg-dark m-2" name="message" placeholder="Type your message here..." id="messages" cols="30" rows="10"></textarea>
+            <input class="form-control btn btn-dark m-2" type="button" value="Submit">
+        </form>
+    </div>
+    </div>
+    </div>
+</section>
+<footer class="card-footer bg-dark text-center text-light">
+    Ndizihiwe and Patience &copy; 2021
+</footer>
+<body>
+
+
+</body>
+</html>
