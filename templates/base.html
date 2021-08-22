@@ -1,0 +1,56 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title %} {% endblock %}- Movie Community</title>
+    <link rel="icon" href="{% static 'Core/images/icons/icon.png' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
+</head>
+
+<body>
+	<!-- NAVBAR GOES HERE -->
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			  <a class="navbar-brand" href="{% url 'home' %}">Cinemania</a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarColor03">
+			<ul class="navbar-nav me-auto">
+			  <li class="nav-item">
+				<a class="nav-link active" href="{% url 'home' %}">Home
+				</a>
+			  </li>
+<!--			  <li class="nav-item">-->
+<!--				<a class="nav-link" href="#">Features</a>-->
+<!--			  </li>-->
+<!--			  <li class="nav-item">-->
+<!--				<a class="nav-link" href="#">Pricing</a>-->
+<!--			  </li>-->
+			  <li class="nav-item">
+				<a class="nav-link" href="#">About</a>
+			  </li>
+
+			  </li>
+			</ul>
+<!--			<form class="d-flex">-->
+<!--			  <input class="form-control me-sm-2" type="text" placeholder="Search">-->
+<!--			  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>-->
+<!--			</form>-->
+		  </div>
+		</div>
+	  </nav>
+
+	<!-- NAVBAR END HERE -->
+
+    {% block content %}
+
+    {% endblock %}
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

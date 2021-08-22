@@ -1,4 +1,4 @@
-"""Community_Website URL Configuration
+"""Cinemania URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Core import views
+from Blog import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Core.urls')),
+    path('blog/', include('Blog.urls')),
 ]

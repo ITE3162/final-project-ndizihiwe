@@ -1,0 +1,128 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{%block title %} {% endblock %}- Movie Community</title>
+    <link rel="icon" href="{% static 'Core/images/icons/icon.png' %}" type="image/x-icon">
+<link rel="stylesheet" href="{% static 'css/app.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="Core/index.html">
+          <span class="align-middle">Cinemania</span>
+        </a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Main
+					</li>
+
+					<li class="sidebar-item {% block state %} {% endblock %} ">
+						<a class="sidebar-link" href="{% url 'dashboard' %}">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item {% block create-state %} {% endblock %}">
+						<a class="sidebar-link" href="{% url 'create' %}">
+              <i class="align-middle" data-feather="edit"></i> <span class="align-middle">Create Blog</span>
+            </a>
+					</li>
+
+					<li class="sidebar-item {% block list-state %} {% endblock %}">
+						<a class="sidebar-link" href="{% url 'blog-list' %}">
+              <i class="align-middle" data-feather="list"></i> <span class="align-middle">Blogs</span>
+            </a>
+					</li>
+
+					<li class="sidebar-header">
+						User tools
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+            </a>
+					</li>
+
+				</ul>
+
+				<div class="sidebar-cta">
+					<div class="sidebar-cta-content">
+						<strong class="d-inline-block mb-2">Talk to Admin</strong>
+						<div class="mb-3 text-sm">
+							Are you looking for more help? Reach out our Admin.
+						</div>
+						<div class="d-grid">
+							<a href="upgrade-to-pro.html" class="btn btn-primary">Call admin</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle js-sidebar-toggle">
+          <i class="hamburger align-self-center"></i>
+        </a>
+
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+
+<!--						Here is where Notifications might go sibyo? haha-->
+
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                <i class="align-middle" data-feather="settings"></i>
+              </a>
+
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                <img src="https://via.placeholder.com/60" class="avatar img-fluid rounded me-1" alt="Nomiso" /> <span class="text-dark">Nomiso</span>
+              </a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="log-out"></i> Log out</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-start">
+							<p class="mb-0">
+								<a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>Ndizihiwe and Patience</strong></a> &copy; Cinemania							</p>
+						</div>
+						<div class="col-6 text-end">
+							<ul class="list-inline">
+								<li class="list-inline-item">
+									<a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+								</li>
+								<li class="list-inline-item">
+									<a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+</div>
+<script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

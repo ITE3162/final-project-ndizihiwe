@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Home - Movie Community</title>
-    <link rel="icon" href="../static/Core/images/icons/icon.png" type="image/x-icon">
+    <link rel="icon" href="{% static 'Core/images/icons/icon.png' %}" type="image/x-icon">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Noto+Sans+JP">
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -12,6 +12,7 @@
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'Core/css/styles.css' %}">
 </head>
+<body>
     <!-- ************ HERO SECTION ************-->
     <header id="home">
         <div class="menu">
@@ -37,7 +38,7 @@
                 <a href="#" class="btn">
                     <button class="btn btn-dark btn-lg text-warning">More About Us</button>
                 </a>
-                <a href="#">
+                <a href="{% url 'register' %}">
                     <button class="btn btn-danger btn-lg">Join our Community</button>
                 </a>
             </div>
@@ -244,8 +245,5 @@
 <footer class="card-footer bg-dark text-center text-light">
     Ndizihiwe and Patience &copy; 2021
 </footer>
-<body>
-
-
 </body>
 </html>
