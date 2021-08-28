@@ -1,0 +1,65 @@
+{% extends '../dash-layout.html' %}
+
+{% block title %}
+List
+{% endblock %}
+
+{% block list-state %}
+active
+{% endblock %}
+
+{% block content %}
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<h1 class="h3 mb-3"><strong>Blog</strong> | List</h1>
+
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+
+                                    <h5 class="card-title mb-0">Latest Blogs</h5>
+								</div>
+								<table class="table table-striped table-hover my-0">
+									<thead>
+										<tr>
+											<th>Title</th>
+											<th class="d-none d-xl-table-cell">Genre</th>
+                                            <th class="d-none d-md-table-cell">Content (short)</th>
+											<th>Status</th>
+{#                                            <th class="d-none d-md-table-cell">Created on</th>#}
+                                             <th class="d-none d-md-table-cell">Released on</th>
+                                            <th class="d-none d-md-table-cell">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    {% for post in posts %}
+
+
+
+										<tr>
+											<td>{{ post.Title}}</td>
+											<td class="d-none d-xl-table-cell">{{ post.Genre }}</td>
+											<td class="d-none d-xl-table-cell">{{ post.Description|truncatewords:6 }}</td>
+											<td><span class="badge bg-success">Published</span></td>
+											<td class="d-none d-md-table-cell">{{ post.Release }}</td>
+                                            <td class="d-none d-sm-table-cell">
+                                                <a href="edit-blog/{{ post.id }}">   <i class="align-middle me-2" data-feather="edit-2"></i></a>
+                                                <a href=""><i class="align-middle me-2" data-feather="trash-2"></i></a>
+                                            </td>
+										</tr>
+                                    {% endfor %}
+
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</main>
+
+{% endblock %}

@@ -14,7 +14,7 @@
 <div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="Core/index.html">
+				<a class="sidebar-brand" href="{% url 'dashboard' %}">
           <span class="align-middle">Cinemania</span>
         </a>
 
@@ -84,12 +84,16 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="https://via.placeholder.com/60" class="avatar img-fluid rounded me-1" alt="Nomiso" /> <span class="text-dark">Nomiso</span>
+                <img src="{{ user.photo.url }}" class="avatar img-fluid rounded me-1" /> <span class="text-dark">
+                                {% if user.is_authenticated %}
+                                {{ user.username }}
+                                {% endif %}
+                            </span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="log-out"></i> Log out</a>
+								<a class="dropdown-item" href="{% url 'logout' %}"><i class="align-middle me-1" data-feather="log-out"></i> Log out</a>
 							</div>
 						</li>
 					</ul>
