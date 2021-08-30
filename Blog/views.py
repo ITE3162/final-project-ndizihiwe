@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from Dashboard.models import Blog
+from Dashboard.models import Blog, User
 
 
 # Create your views here.
@@ -12,6 +12,8 @@ def blog(request):
 
 
 def blogdetails(request, bid):
-    context = Blog.objects.filter(id=bid)
-    details = {'details': context}
-    return render(request, "Blog/blog-details.html", details)
+    context = Blog.objects.get(id=bid)
+    Ge = context.Genre
+    context2 = Blog.objects.filter(Genre=Ge).exclude(id=bid)
+    both = {'related': context2, 'details': context}
+    return render(request, "Blog/blog-details.html", both)
