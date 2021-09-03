@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from Dashboard.models import User, Blog
 from django.contrib.auth.models import auth
+from Dashboard.forms import BlogForms
 
 
 # Create your views here.
@@ -62,8 +63,9 @@ def dashboard(request):
 
 def create(request):
     if request.method == 'POST':
-        if request.POST.get('Title') and request.POST.get('Genre') and request.POST.get('Description') and request.FILES.get('Poster') and request.POST.get('Release'):
-            saveblog=Blog()
+        if request.POST.get('Title') and request.POST.get('Genre') and request.POST.get(
+                'Description') and request.FILES.get('Poster') and request.POST.get('Release'):
+            saveblog = Blog()
             saveblog.Title = request.POST['Title']
             saveblog.Genre = request.POST['Genre']
             saveblog.Description = request.POST['Description']
@@ -84,6 +86,20 @@ def bloglist(request):
     context = Blog.objects.filter(Author=author)
     posts = {'posts': context}
     return render(request, "Dashboard/blog-list.html", posts)
+
+
+def blogedit(request, eid):
+    instance = Blog.objects.get(id=eid)
+    editinfo = {'editinfo': instance}
+    if request.method == "POST":
+        form = BlogForms(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            print("Updated successfully")
+            return redirect("blog-list")
+        else:
+            print("Couldn't update")
+    return render(request, "Dashboard/blog-edit.html", editinfo)
 
 
 def logout(request):

@@ -15,14 +15,15 @@ Post list
      {% for blog in blogs %}
 						<div class="col-md-3 d-flex align-items-stretch">
 							<div class="card">
-								<img class="card-img-top" src="{{ blog.Poster.url }}" alt="Unsplash" height="">
+                                <a href="blog-details/{{ blog.id }}">
+								<img class="card-img-top" src="{{ blog.Poster.url }}" alt="Poster">
+                                </a>
 								<div class="card-header">
 									<h4 class="card-title mb-0 text-dark">{{ blog.Title }}</h4>
 								</div>
 								<div class="card-body">
                                     <p class="card-text">{{ blog.Description|truncatechars:100 }}</p>
-									<p class="card-text">{{ blog.Genre }} - {{ blog.Release }}</p>
-									<a href="blog-details/{{ blog.id }}" class="btn btn-primary">Read more</a>
+									<strong><p class="card-text text-dark">{{ blog.Genre }} - {{ blog.Release }}</p></strong>
 								</div>
 							</div>
 						</div>

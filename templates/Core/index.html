@@ -6,32 +6,36 @@
     <title>Home - Movie Community</title>
     <link rel="icon" href="{% static 'Core/images/icons/icon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Core/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
-
     <link rel="stylesheet" href="{% static 'Core/css/styles.css' %}">
 </head>
 <body>
     <!-- ************ HERO SECTION ************-->
-    <header id="home">
-        <nav class="navbar navbar-expand-lg">
-		<div class="container-fluid">
-            <img src="{% static '/Core/images/logo_edited.png' %}" alt="">
-		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse " id="navbarColor03">
+<header id="home">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+          <img src="{% static '/Core/images/logo_edited.png' %}" alt="">
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              </ul>
+              <div class="d-flex">
 			<ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#whatwedo">What we do</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Get in Touch</a></li>
-                </ul>
+                <li class="nav-item"><a class="nav-link text-warning" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-warning" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link text-warning" href="#whatwedo">What we do</a></li>
+                <li class="nav-item"><a class="nav-link text-warning" href="#team">Team</a></li>
+                <li class="nav-item"><a class="nav-link text-warning" href="{% url 'blog' %}">Blog</a></li>
+                <li class="nav-item"><a class="nav-link text-warning" href="#contact">Get in Touch</a></li>
+                <li class="nav-item"><a class="nav-link text-warning" href="{% url 'login' %}">Log in</a></li>
+            </ul>
           </div>
-		</div>
-	  </nav>
+        </div>
+      </div>
+    </nav>
         <section class="hero-section">
             <h1 class="text-warning">A Community of Movie lovers</h1>
             <p>
@@ -57,20 +61,20 @@
         <!--    TODO: Fetch data from database-->
     <div class="col-md text-center">
         <p class="text-justify pl-5">
-            Nomiso is a computer specialist who's pursuing to get bachelors degree in Information Technology (IT)
-            at University of Rwanda College of science and Technology (UR-CST) and he has received different certificates regarding
-            computing fields and he s looking forward to continuing his studies in Master’s degree at University of Canada in this upcoming year.
+ {% for item in about %}
+
+            {{ item.Content }}
         </p>
     <a href="#">
-        <button class="btn btn-danger btn-lg">Read more</button>
+        <button class="btn btn-danger btn-lg mb-lg-2">Read more</button>
     </a>
     </div>
-    <div class="col-sm-3 pl-5">
-        <img class="img-fluid" src="https://via.placeholder.com/250" alt="Responsive image">
+    <div class="col-md-3 m-xl-auto d-flex">
+        <img class="img-fluid" src="{{ item.Photo.url }}" alt="Responsive image">
     </div>
         </div>
          </div>
-
+ {% endfor %}
 
 </section>
 
@@ -121,66 +125,21 @@
 <!--    TODO: Fetch data from database-->
     <div class="container-fluid pb-lg-4">
         <div class="row mb-md-2">
-              <div class="col">
-            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
-            <h3>Names</h3>
-            <h4>Title</h4>
-            <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-        </div>
-        <div class="col">
-            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
-            <h3>Names</h3>
-            <h4>Title</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-        </div>
-        </div>
-      <div class="row mb-md-2">
+
+            {% for te in team %}
+
           <div class="col">
-            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
-            <h3>Names</h3>
-            <h4>Title</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            <img class="rounded-circle" src="{{  te.photo.url}}" alt="" width="100" height="100">
+            <h3>{{ te.first_name }}</h3>
+            <h4>{{ te.title }}</h4>
+            <p class="text-justify">
+             {{ te.about }}
             </p>
-        </div>
-          <div class="col">
-            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
-            <h3>Names</h3>
-            <h4>Title</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-        </div>
-      </div>
-         <div class="row mb-md-2">
-              <div class="col">
-            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
-            <h3>Names</h3>
-            <h4>Title</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
-        </div>
-          <div class="col">
-            <img class="rounded-circle" src="https://via.placeholder.com/80" alt="">
-            <h3>Names</h3>
-            <h4>Title</h4>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
+          </div>
+
+             {% endfor %}
         </div>
     </div>
-         </div>
 </section>
 
 <!--#########About section ###############-->
@@ -190,24 +149,18 @@
 <!--    TODO: Fetch data from database-->
 <div class="container-fluid">
     <div class="row text-center pb-lg-5">
+        {% for post in posts %}
+
     <div class="col">
-        <img class="m-4" src="https://via.placeholder.com/200x300" alt="">
-        <h4>Date</h4>
-        <h4>Authors</h4>
-        <h3>Blog Title</h3>
+     <a href="blog/blog-details/{{ post.id }}">
+        <img class="m-4" src="{{ post.Poster.url }}" alt="" width="200" height="300">
+     </a>
+        <h4>{{ post.Release }}</h4>
+        <h4>{{ post.Author }}</h4>
+        <h3>{{ post.Title }}</h3>
     </div>
-    <div class="col">
-        <img class="m-4" src="https://via.placeholder.com/200x300" alt="">
-        <h4>Date</h4>
-        <h4>Authors</h4>
-        <h3>Blog Title</h3>
-    </div>
-    <div class="col">
-        <img class="m-4" src="https://via.placeholder.com/200x300" alt="">
-        <h4>Date</h4>
-        <h4>Authors</h4>
-        <h3>Blog Title</h3>
-    </div>
+        {% endfor %}
+
 </div>
 </div>
 </section>
@@ -250,6 +203,6 @@
     Ndizihiwe and Patience &copy; 2021
 </footer>
 
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'Core/js/bootstrap.min.js' %}"></script>
 </body>
 </html>

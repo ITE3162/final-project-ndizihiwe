@@ -26,7 +26,7 @@ class MyUserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, username, password=None):
-        user = self.create_user(
+        user = self.model(
             email=self.normalize_email(email),
             password=password,
             username=username,
@@ -35,6 +35,7 @@ class MyUserManager(BaseUserManager):
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
+        user.set_password(password)
         user.save(using=self._db)
         return user
 
@@ -44,7 +45,7 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=100)
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
     username = models.CharField(max_length=30, unique=True)
-    photo = models.ImageField(upload_to='avatar', default='avatar.png', blank=True)
+    photo = models.ImageField(upload_to='avatar', default='avatar/avatar.png', blank=True)
     title = models.CharField(max_length=100)
     about = models.TextField()
     password = models.CharField(max_length=100)
@@ -61,7 +62,7 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = ['username', ]
 
     def __str__(self):
-        return self.email
+        return self.first_name + " " + self.last_name
 
     def has_perm(self, perm, obj=None):
         return self.is_admin
@@ -76,6 +77,9 @@ class Blog(models.Model):
     Description = models.TextField()
     Poster = models.ImageField(upload_to='posters')
     Release = models.DateField()
-    # is_published = models.BooleanField(default=True)
-    # created_at = models.DateTimeField(auto_now_add=True)
+    is_published = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     Author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ('-created_at',)
