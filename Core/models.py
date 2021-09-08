@@ -14,3 +14,10 @@ class Service(models.Model):
     Title = models.CharField(max_length=100)
     Subtext = models.TextField()
     Icon = models.ImageField(upload_to='services')
+
+
+class Contact(models.Model):
+    Email = models.EmailField(max_length=100)
+    Subject = models.CharField(max_length=100)
+    Message = models.TextField()
+

@@ -85,33 +85,20 @@
 <!--    TODO: Fetch data from database-->
 <div class="container-fluid">
     <div class="row text-center justify-content-around p-lg-5 mb-lg-5">
+        {% for service in services %}
+
+
+
         <div class="col-sm-3">
-            <img src="https://via.placeholder.com/60" alt="">
-            <h2 class="m-2">Networking</h2>
+            <img src="{{ service.Icon.url }}" alt="" width="60" height="60">
+            <h2 class="m-2">{{ service.Title }}</h2>
             <p class="text-justify">
-                Networking is the field of computer science that allows computers to exchange data or information.
-                Data can be exchanged either using cable media or wireless media.
+                {{ service.Subtext }}
             </p>
             <a href="#" class="btn m-3"><button class="btn btn-danger btn-block">Read more</button></a>
         </div>
-         <div class="col-sm-3">
-            <img src="https://via.placeholder.com/60" alt="">
-            <h2 class="m-2">Linux distros</h2>
-            <p class="text-justify">
-                Linux facilitates with powerful support for networking. It provides various command-line tools such as
-                ssh, ip, mail, telnet, and more for connectivity with the other...
-            </p>
-            <a href="#" class="btn m-3"><button class="btn btn-danger btn-block">Read more</button></a>
-        </div>
-        <div class="col-sm-3">
-            <img src="https://via.placeholder.com/60" alt="">
-            <h2 class="m-2">Cloud computing</h2>
-            <p class="text-justify">
-                On-demand availability of computer system resources, especially data storage (cloud storage) and computing power,
-                without direct active management by the user.
-            </p>
-            <a href="#" class="btn m-3"><button class="btn btn-danger btn-block">Read more</button></a>
-        </div>
+     {% endfor %}
+
     </div>
 
 
@@ -165,14 +152,13 @@
 </div>
 </section>
 
-<!--#########About section ###############-->
 <section id="contact">
     <h1 class="pt-4">Get in Touch</h1>
     <hr>
 <!--    TODO: Fetch data from database-->
 <div class="container">
     <div class="row">
-    <div class="col">
+    <div class="col-md-4">
         <h2>Social Links</h2>
 
         <a class="text-decoration-none" href="https://www.instagram.com/nomisoo__/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
@@ -181,19 +167,20 @@
         <a class="text-decoration-none" href="https://wa.link/f1w54r" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
     </div>
 
-    <div class="col">
+    <div class="col-md-4">
         <h2>Sitemap</h2>
         <div><a class="text-decoration-none mb-lg-4" href="#home">Home</a></div>
         <div><a class="text-decoration-none mb-lg-4" href="#team">Our Team</a><br> </div>
        <div><a class="text-decoration-none mb-lg-4" href="#blog">Blog Posts</a></div>
     </div>
-    <div class="col">
+    <div class="col-md-4">
         <h2>Contact Us</h2>
         <form action="" method="post" class="">
-            <input class="form-control bg-dark m-2" type="email" name="email" placeholder="Enter Email address">
-            <input class="form-control bg-dark m-2" type="text" name="subject" placeholder="Enter Subject">
-            <textarea class="form-control bg-dark m-2" name="message" placeholder="Type your message here..." id="messages" cols="30" rows="10"></textarea>
-            <input class="form-control btn btn-dark m-2" type="button" value="Submit">
+            {% csrf_token %}
+            <input class="form-control bg-dark m-2 text-light" type="email" name="email" placeholder="Enter Email address">
+            <input class="form-control bg-dark m-2 text-light" type="text" name="subject" placeholder="Enter Subject">
+            <textarea class="form-control bg-dark m-2 text-light" name="message" placeholder="Type your message here..." id="messages" cols="30" rows="10"></textarea>
+            <input class="form-control btn btn-dark m-2 text-light" type="submit" value="Submit">
         </form>
     </div>
     </div>

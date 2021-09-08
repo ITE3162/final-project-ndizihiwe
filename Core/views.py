@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from Core.models import About, Service
+from django.shortcuts import render, redirect
+from Core.models import About, Service, Contact
 from Dashboard.models import Blog, User
 
 
@@ -10,4 +10,17 @@ def Mainsite(request):
     users = User.objects.all().exclude(is_superuser=True)
     blogs = Blog.objects.all()[:3]
     data = {'about': about, 'services': services, 'team': users, 'posts': blogs, }
+    if request.method == 'POST':
+        if request.POST.get('email') and request.POST.get('subject') and request.POST.get(
+                'message'):
+            savemessage = Contact()
+            savemessage.Email = request.POST['email']
+            savemessage.Subject = request.POST['subject']
+            savemessage.Message = request.POST['message']
+            savemessage.save()
+            print('Message sent successfully')
+            return redirect('home')
+        else:
+            print('Something went wrong')
+            return redirect('home')
     return render(request, "Core/index.html", data)

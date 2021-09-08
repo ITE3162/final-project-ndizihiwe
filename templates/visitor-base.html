@@ -6,6 +6,7 @@
     <title>{%block title %} {% endblock %}- Movie Community</title>
     <link rel="icon" href="{% static 'Core/images/icons/icon.png' %}" type="image/x-icon">
 <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -30,8 +31,9 @@
 				</a>
 			  </li>
 			</ul>
-			<form class="d-flex">
-			  <input class="form-control me-sm-2" type="text" placeholder="Search">
+			<form class="d-flex autocomplete"  id="autocomplete">
+			  <input class="form-control me-sm-2 autocomplete-input" type="text" placeholder="Search">
+                <ul class="autocomplete-result-list"></ul>
 			  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 			</form>
 		  </div>
@@ -68,6 +70,8 @@
 			</footer>
 		</div>
 </div>
+
 <script src="{% static 'js/app.js' %}"></script>
+
 </body>
 </html>
