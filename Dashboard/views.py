@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from Dashboard.models import User, Blog
 from django.contrib.auth.models import auth
 from Dashboard.forms import BlogForms
@@ -48,6 +49,8 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
+            messages.success(request, 'Logged in successfully')
+            print('Logged in successful')
             return redirect('dashboard')
         else:
             print('Invalid credentials')
@@ -100,6 +103,12 @@ def blogedit(request, eid):
         else:
             print("Couldn't update")
     return render(request, "Dashboard/blog-edit.html", editinfo)
+
+
+def blogdelete(request, eid):
+    blogdel = Blog.objects.get(id=eid)
+    blogdel.delete()
+    return redirect("blog-list")
 
 
 def logout(request):

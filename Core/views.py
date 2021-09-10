@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from Core.models import About, Service, Contact
 from Dashboard.models import Blog, User
@@ -18,7 +19,7 @@ def Mainsite(request):
             savemessage.Subject = request.POST['subject']
             savemessage.Message = request.POST['message']
             savemessage.save()
-            print('Message sent successfully')
+            messages.success(request, 'Message sent successfully!')
             return redirect('home')
         else:
             print('Something went wrong')

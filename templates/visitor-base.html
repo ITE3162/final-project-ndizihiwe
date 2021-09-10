@@ -31,9 +31,9 @@
 				</a>
 			  </li>
 			</ul>
-			<form class="d-flex autocomplete"  id="autocomplete">
-			  <input class="form-control me-sm-2 autocomplete-input" type="text" placeholder="Search">
-                <ul class="autocomplete-result-list"></ul>
+			<form class="d-flex" action="{% url 'blog' %}" method="get">
+			  <input class="form-control me-sm-2" type="text" name="q" id="id_q" placeholder="Search...">
+
 			  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 			</form>
 		  </div>
@@ -72,6 +72,10 @@
 </div>
 
 <script src="{% static 'js/app.js' %}"></script>
+
+    <script type="text/javascript">
+        document.getElementById("id_q").value="{{ query }}"
+    </script>
 
 </body>
 </html>

@@ -5,4 +5,4 @@ from Dashboard.models import Blog
 class BlogForms(forms.ModelForm):
     class Meta:
         model = Blog
-        fields = ('Title', 'Genre', 'Description', 'Poster', 'Release')
+        fields = ('Title', 'Genre', 'Description', 'Poster')

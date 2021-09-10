@@ -7,7 +7,7 @@ class About(models.Model):
     Photo = models.ImageField(upload_to='about')
 
     def __str__(self):
-        return self.Content
+        return self.Photo
 
 
 class Service(models.Model):

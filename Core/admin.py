@@ -1,7 +1,16 @@
 from django.contrib import admin
-from Core.models import About, Service
+from Core.models import About, Service, Contact
 
 # Register your models here.
 
 admin.site.register(About)
-admin.site.register(Service)
+
+
+@admin.register(Service)
+class serviceAdmin(admin.ModelAdmin):
+    list_display = ['Title', 'Subtext']
+
+
+@admin.register(Contact)
+class contactAdmin(admin.ModelAdmin):
+    list_display = ['Email', 'Subject']

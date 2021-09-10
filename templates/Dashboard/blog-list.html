@@ -37,8 +37,6 @@ active
 									<tbody>
                                     {% for post in posts %}
 
-
-
 										<tr>
 											<td>{{ post.Title}}</td>
 											<td class="d-none d-xl-table-cell">{{ post.Genre }}</td>
@@ -46,8 +44,13 @@ active
 											<td><span class="badge bg-success">Published</span></td>
 											<td class="d-none d-md-table-cell">{{ post.Release }}</td>
                                             <td class="d-none d-sm-table-cell">
-                                                <a href="edit-blog/{{ post.id }}">   <i class="align-middle me-2" data-feather="edit-2"></i></a>
-                                                <a href=""><i class="align-middle me-2" data-feather="trash-2"></i></a>
+                                                <a href="edit-blog/{{ post.id }}">  <i class="align-middle me-2" data-feather="edit-2"></i></a>
+                                                <form action="{% url 'delete-blog' post.id %}" method="post" class="d-inline">
+                                                   {% csrf_token %}
+                                                    <button type="submit" class="btn">
+                                                    <i class="align-middle me-2 text-danger" data-feather="trash-2"></i>
+                                                    </button>
+                                                </form>
                                             </td>
 										</tr>
                                     {% endfor %}
