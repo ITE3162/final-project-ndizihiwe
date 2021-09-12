@@ -1,7 +1,8 @@
 from operator import attrgetter
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from Dashboard.models import Blog, User
+from Blog.models import Comment
 
 
 # Create your views here.
@@ -24,7 +25,21 @@ def blogdetails(request, bid):
     context = Blog.objects.get(id=bid)
     Ge = context.Genre
     context2 = Blog.objects.filter(Genre=Ge).exclude(id=bid)
-    both = {'related': context2, 'details': context}
+    context3 = Blog.objects.order_by('Genre').distinct('Genre')
+    context4 = Comment.objects.filter(Blog=bid)
+    both = {'related': context2, 'details': context, 'cats': context3, 'comments': context4}
+
+    if request.method == 'POST':
+        if request.POST.get('names') and request.POST.get('comment'):
+            savecomment = Comment()
+            savecomment.Names = request.POST['names']
+            savecomment.Feedback = request.POST['comment']
+            savecomment.Blog = context
+            savecomment.save()
+            print('Comment sent successfully!')
+        else:
+            print('Something went wrong')
+            return redirect('blog')
     return render(request, "Blog/blog-details.html", both)
 
 
@@ -34,7 +49,8 @@ def blogsearch(query=None):
     for q in queries:
         posts = Blog.objects.filter(
             Q(Title__icontains=q) |
-            Q(Description__icontains=q)
+            Q(Description__icontains=q)|
+            Q(Genre__icontains=q)
         ).distinct()
 
         for post in posts:

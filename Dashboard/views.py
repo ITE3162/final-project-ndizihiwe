@@ -1,5 +1,7 @@
+from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from Blog.models import Comment
 from Dashboard.models import User, Blog
 from django.contrib.auth.models import auth
 from Dashboard.forms import BlogForms
@@ -61,7 +63,12 @@ def login(request):
 
 
 def dashboard(request):
-    return render(request, "Dashboard/Dashboard.html")
+    context = Blog.objects.filter(Author=request.user)
+    context2=Comment.objects.all()
+    blogcount = context.count()
+    commentcount= context2.count()
+    blogz = {'blogcount': blogcount, 'comments': commentcount}
+    return render(request, "Dashboard/Dashboard.html", blogz)
 
 
 def create(request):
