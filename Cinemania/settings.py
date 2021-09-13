@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'Cinemania.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd7ltq2bbkvbnsr',
-        'USER': 'gvrrpwijqdpjcz',
-        'PASSWORD': '0e7206dc7577ebbed7be478843e678bd1bebdca6c229aeb3ebbf53469773ae5a',
-        'HOST': 'ec2-44-198-100-81.compute-1.amazonaws.com',
+        'NAME': 'cinemania',
+        'USER': 'postgres',
+        'PASSWORD': '123',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -124,15 +124,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+django_heroku.settings(locals())
 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# Location for static files root folder
+
+# Location for static files root folder
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 MEDIA_URL = '/media/'
 
