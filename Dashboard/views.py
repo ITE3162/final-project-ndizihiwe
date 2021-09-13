@@ -68,7 +68,7 @@ def dashboard(request):
     blogcount = context.count()
     commentcount= context2.count()
     blogz = {'blogcount': blogcount, 'comments': commentcount}
-    return render(request, "Dashboard/Dashboard.html", blogz)
+    return render(request, "Dashboard/dashboard.html", blogz)
 
 
 def create(request):
