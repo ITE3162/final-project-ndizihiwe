@@ -6,9 +6,6 @@ class About(models.Model):
     Content = models.TextField()
     Photo = models.ImageField(upload_to='about')
 
-    def __str__(self):
-        return self.Photo
-
 
 class Service(models.Model):
     Title = models.CharField(max_length=100)
