@@ -129,9 +129,9 @@ STATIC_URL = '/static/'
 django_heroku.settings(locals())
 
 # Location for static files root folder
-# STATICFILES_DIRS = [
-#     BASE_DIR / "static",
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 MEDIA_URL = '/media/'
 
