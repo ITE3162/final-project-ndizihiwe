@@ -1,4 +1,8 @@
 # Django project - Cinemaniacs Community
+
+## Link to the deployed version
+https://djangocinemania.herokuapp.com/
+
 ## ITE3162 - Interactive web Development course Final Project
 This project is designed to allow students to demonstrate knowledge and skills (HMTL, CSS, Bootstrap, Python and Django) 
 acquired through out the interactive web dev course.
